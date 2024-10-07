@@ -8,6 +8,6 @@ namespace Padel.Contracts.Responses
 {
     public class MatchesResponse
     {
-        public IEnumerable<MatchesResponse> Items { get; init; }  = [];
+        public IEnumerable<MatchResponse> Items { get; init; }  = [];
     }
 }

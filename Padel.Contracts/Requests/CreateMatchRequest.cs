@@ -12,8 +12,6 @@ namespace Padel.Contracts.Requests
         public required DateTime MatchDateTime { get; init; }
 
         public required string MatchType { get; init; }
-
-        public IEnumerable<Guid> Teams { get; init; } = Enumerable.Empty<Guid>();
     }
 
 

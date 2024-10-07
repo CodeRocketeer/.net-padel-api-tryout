@@ -16,11 +16,12 @@ namespace Padel.Contracts.Responses
 
         public required string MatchType { get; init; }
 
-        public IEnumerable<Guid> Teams { get; init; } = [];
 
         public required bool IsCompleted { get; init; }
 
         public required bool IsConfirmed { get; init; }
+
+        public required  DateTime CreatedAt { get; init; }
 
     }
 }

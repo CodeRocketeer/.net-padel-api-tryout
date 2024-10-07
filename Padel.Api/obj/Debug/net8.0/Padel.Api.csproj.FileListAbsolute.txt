@@ -62,3 +62,4 @@ C:\Users\jense\Documents\02_Training\03_TryOuts\dot-net-api-experiments\.net-pad
 C:\Users\jense\Documents\02_Training\03_TryOuts\dot-net-api-experiments\.net-padel-api-tryout\Padel.Api\obj\Debug\net8.0\Padel.Api.pdb
 C:\Users\jense\Documents\02_Training\03_TryOuts\dot-net-api-experiments\.net-padel-api-tryout\Padel.Api\obj\Debug\net8.0\Padel.Api.genruntimeconfig.cache
 C:\Users\jense\Documents\02_Training\03_TryOuts\dot-net-api-experiments\.net-padel-api-tryout\Padel.Api\obj\Debug\net8.0\ref\Padel.Api.dll
+C:\Users\jense\Documents\02_Training\03_TryOuts\dot-net-api-experiments\.net-padel-api-tryout\Padel.Api\obj\Debug\net8.0\Padel.Api.sourcelink.json

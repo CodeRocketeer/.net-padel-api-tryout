@@ -8,7 +8,6 @@ using Padel.Contracts.Requests;
 namespace Padel.Api.Controllers
 {
     [ApiController]
-    [Route("api")]
     public class MatchesController : ControllerBase
     {
 
@@ -19,26 +18,48 @@ namespace Padel.Api.Controllers
             _matchRepository = matchRepository;
 
         }
-        [HttpPost("matches")]
+        [HttpPost(ApiEndpoints.Matches.Create)]
         public async Task<IActionResult> Create([FromBody]CreateMatchRequest request)
         {
             var match = request.MapToMatch();
             await _matchRepository.CreateAsync(match);
-            return Created($"/api/matches/{match.Id}", match);
+            return CreatedAtAction(nameof(Get), new { id = match.Id }, match);
+            
         }
 
-        [HttpGet("matches")]
+        [HttpGet(ApiEndpoints.Matches.GetAll)]
         public async Task<IActionResult> GetAll()
         {
             var matches = await _matchRepository.GetAllAsync();
-            return Ok(matches);
+            var matchesResponse = matches.MapToResponse();
+            return Ok(matchesResponse);
         }
 
-        [HttpGet("matches/{id}")]
-        public async Task<IActionResult> GetById(Guid id)
+        [HttpGet(ApiEndpoints.Matches.Get)]
+        public async Task<IActionResult> Get([FromRoute] Guid id)
         {
-            var match = await _matchRepository.GetByIdAsync(id);
-            return Ok(match);
+           var match = await _matchRepository.GetByIdAsync(id);
+            if (match == null) { return NotFound(); }
+            var response = match.MapToResponse();
+            return Ok(response);
+        }
+
+        [HttpDelete(ApiEndpoints.Matches.Delete)]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var deleted = await _matchRepository.DeleteByIdAsync(id);
+            if (!deleted) { return NotFound(); }
+            return Ok(deleted);
+        }
+
+        [HttpPut(ApiEndpoints.Matches.Update)]
+        public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] UpdateMatchRequest request)
+        {
+            var match = request.MapToMatch(id);
+            var updated = await _matchRepository.UpdateAsync(match);
+            if(!updated) { return NotFound(); }
+            var response = match.MapToResponse();
+            return Ok(response);
         }
 
     }

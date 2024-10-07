@@ -27,7 +27,7 @@
   },
   {
     "ContainingType": "Padel.Api.Controllers.MatchesController",
-    "Method": "GetById",
+    "Method": "Get",
     "RelativePath": "api/matches/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -36,6 +36,43 @@
       {
         "Name": "id",
         "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Padel.Api.Controllers.MatchesController",
+    "Method": "Delete",
+    "RelativePath": "api/matches/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Padel.Api.Controllers.MatchesController",
+    "Method": "Update",
+    "RelativePath": "api/matches/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "Padel.Contracts.Requests.UpdateMatchRequest",
         "IsRequired": true
       }
     ],

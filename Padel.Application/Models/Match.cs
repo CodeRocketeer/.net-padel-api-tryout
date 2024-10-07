@@ -13,10 +13,16 @@ namespace Padel.Application.Models
 
         public required DateTime MatchDateTime { get; init; }
 
+
         public required string MatchType { get; init; }
 
         public  bool IsCompleted { get; init; }
 
         public bool IsConfirmed { get; init; }
+
+        public DateTime CreatedAt { get; init; }
+
+      
+
     } 
 }
